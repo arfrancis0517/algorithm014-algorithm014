@@ -18,7 +18,7 @@ set_y=set(['','',''])
 hashmap hashset?
 
 
-# 树 二叉树(完全对称) 二叉搜索树 为了升纬
+# 树 二叉树 二叉搜索树 为了升纬
 
 树的面试题解法一般都是递归，为什么？
 因为树就是按照递归的方式来定义的。
@@ -51,26 +51,26 @@ root.left.right.data = "left-right"
 中序遍历 左根右
 后序遍历 左右根
 
-def preorder(self, root):
-    if root: 
-        self.traverse_path.append(root.val) 
-        self.preorder(root.left) 
-        self.preorder(root.right)
+    def preorder(self, root):
+        if root: 
+            self.traverse_path.append(root.val) 
+            self.preorder(root.left) 
+            self.preorder(root.right)
 
 
-def inorder(self, root):
-    if root:
-        self.inorder(root.left) 
-        self.traverse_path.append(root.val) 
-        self.inorder(root.right)
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left) 
+            self.traverse_path.append(root.val) 
+            self.inorder(root.right)
 
 
 
-def postorder(self, root):
-    if root:
-        self.postorder(root.left) 
-        self.postorder(root.right) 
-        self.traverse_path.append(root.val)
+    def postorder(self, root):
+        if root:
+            self.postorder(root.left) 
+            self.postorder(root.right) 
+            self.traverse_path.append(root.val)
 
 
 
@@ -78,7 +78,9 @@ def postorder(self, root):
 
 
 # Definition for a binary tree node.
+
 class TreeNode:
+
     def __init__(self, x):
         self.val = x
         self.left = None
@@ -91,7 +93,9 @@ class TreeNode:
 # 空间复杂度：空间复杂度：O(h)，h为树的高度。最坏情况下需要空间O(n)，平均情况为O(logn)
 
 # 递归1：二叉树遍历最易理解和实现版本
+
 class Solution:
+
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return []
@@ -103,7 +107,9 @@ class Solution:
         # return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
 
 # 递归2：通用模板，可以适应不同的题目，添加参数、增加返回条件、修改进入递归条件、自定义返回值
+
 class Solution:
+
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         def dfs(cur):
             if not cur:
@@ -131,7 +137,9 @@ class Solution:
 # 空间复杂度：O(h)，h为树的高度。取决于树的结构，最坏情况存储整棵树，即O(n)
 
 # 迭代1：前序遍历最常用模板（后序同样可以用）
+
 class Solution:
+
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return []        
@@ -158,7 +166,9 @@ class Solution:
         # return res[::-1]
 
 # 迭代1：层序遍历最常用模板
+
 class Solution:
+
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         if not root:
             return []
@@ -176,7 +186,9 @@ class Solution:
         
         
 # 迭代2：前、中、后序遍历通用模板（只需一个栈的空间）
+
 class Solution:
+
     def inorderTraversal(self, root: TreeNode) -> List[int]: 
         res = []
         stack = []
@@ -216,7 +228,9 @@ class Solution:
 # 迭代3：标记法迭代（需要双倍的空间来存储访问状态）：
 # 前、中、后、层序通用模板，只需改变进栈顺序或即可实现前后中序遍历，
 # 而层序遍历则使用队列先进先出。0表示当前未访问，1表示已访问。
+
 class Solution:
+
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         res = []
         stack = [(0, root)]
@@ -269,7 +283,9 @@ class Solution:
 # 此处只给出中序遍历，前序遍历只需修改输出顺序即可。而后序遍历，由于遍历是从根开始的，而线索二叉树是将为空的左右子节点连接到相应的顺序上，使其能够按照相应准则输出。但是后序遍历的根节点却已经没有额外的空间来标记自己下一个应该访问的节点，所以这里需要建立一个临时节点dump，令其左孩子是root。并且还需要一个子过程，就是倒序输出某两个节点之间路径上的各个节点。
 
 # 莫里斯遍历，借助线索二叉树中序遍历（附前序遍历）
+
 class Solution:
+
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         res = []
         # cur = pre = TreeNode(None)
@@ -305,14 +321,18 @@ class Solution:
 
 
 # Definition for a Node.
+
 class Node:
+
     def __init__(self, val=None, children=None):
         self.val = val
         self.children = children
 
 
 # N叉树简洁递归
+
 class Solution:
+
     def preorder(self, root: 'Node') -> List[int]:
         if not root: return []
         res = [root.val]
@@ -321,7 +341,9 @@ class Solution:
         return res
 
 # N叉树通用递归模板
+
 class Solution:
+
     def preorder(self, root: 'Node') -> List[int]:
         res = []
         def helper(root):
@@ -334,7 +356,9 @@ class Solution:
         return res
 
 # N叉树迭代方法
+
 class Solution:
+
     def preorder(self, root: 'Node') -> List[int]:
         if not root:
             return []
