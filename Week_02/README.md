@@ -1,8 +1,9 @@
 学习笔记
+
 map set
-hash table
+# hash table
 hash function 可以把一个值映射到一个位置 位置就是他的下标
-任何一个数据传进来 string 进来 有一个index int 来记录他的信息
+任何一个数据传进来 string 进来 有一个index int 来记录他的信息  
 hash code
 比如把每个字母的ASCII加到一起 再mod上一个数
 函数选得好可以让值都尽量分散 不会发生碰撞
@@ -17,13 +18,17 @@ set_y=set(['','',''])
 hashmap hashset?
 
 
-树 二叉树(完全对称) 二叉搜索树 为了升纬
+# 树 二叉树(完全对称) 二叉搜索树 为了升纬
+
 树的面试题解法一般都是递归，为什么？
 因为树就是按照递归的方式来定义的。
+
 树是永远走不回去 图是会循环回去
+
 linked list 是特殊化的tree， tree 是特殊化的graph
 
 class Tree(object):
+
     def __init__(self):
         self.left = None
         self.right = None
@@ -41,7 +46,7 @@ root.left.left.data = "left 2"
 root.left.right = Tree()
 root.left.right.data = "left-right"
 
-二叉树的遍历
+# 二叉树的遍历
 前序遍历 根左右
 中序遍历 左根右
 后序遍历 左右根
@@ -73,11 +78,11 @@ def postorder(self, root):
 
 
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 
 
@@ -259,15 +264,9 @@ class Solution:
 # 空间复杂度：O(1)，如果在遍历过程中就输出节点值，则只需常数空间就能得到中序遍历结果，空间只需两个指针。
 # 如果将结果储存最后输出，则空间复杂度还是O(n)。
 
-# PS：莫里斯遍历实际上是在原有二叉树的结构基础上，构造了线索二叉树，
-# 线索二叉树定义为：原本为空的右子节点指向了中序遍历顺序之后的那个节点，把所有原本为空的左子节点都指向了中序遍历之前的那个节点
-# emmmm，好像大学教材学过，还考过
+# PS：莫里斯遍历实际上是在原有二叉树的结构基础上，构造了线索二叉树，线索二叉树定义为：原本为空的右子节点指向了中序遍历顺序之后的那个节点，把所有原本为空的左子节点都指向了中序遍历之前的那个节点
 
-# 此处只给出中序遍历，前序遍历只需修改输出顺序即可
-# 而后序遍历，由于遍历是从根开始的，而线索二叉树是将为空的左右子节点连接到相应的顺序上，使其能够按照相应准则输出
-# 但是后序遍历的根节点却已经没有额外的空间来标记自己下一个应该访问的节点，
-# 所以这里需要建立一个临时节点dump，令其左孩子是root。并且还需要一个子过程，就是倒序输出某两个节点之间路径上的各个节点。
-# 具体参考大佬博客
+# 此处只给出中序遍历，前序遍历只需修改输出顺序即可。而后序遍历，由于遍历是从根开始的，而线索二叉树是将为空的左右子节点连接到相应的顺序上，使其能够按照相应准则输出。但是后序遍历的根节点却已经没有额外的空间来标记自己下一个应该访问的节点，所以这里需要建立一个临时节点dump，令其左孩子是root。并且还需要一个子过程，就是倒序输出某两个节点之间路径上的各个节点。
 
 # 莫里斯遍历，借助线索二叉树中序遍历（附前序遍历）
 class Solution:
@@ -304,13 +303,13 @@ class Solution:
 # 将根节点推出栈后，需要将这些节点都放入栈，共有 M−1个节点，因此栈的大小为 O(M)。
 
 
-"""
+
 # Definition for a Node.
 class Node:
     def __init__(self, val=None, children=None):
         self.val = val
         self.children = children
-"""
+
 
 # N叉树简洁递归
 class Solution:
@@ -351,13 +350,12 @@ class Solution:
         return res
 
 
-堆 heap
-找一堆树里的最大值或者最小值
+# 堆 heap
+找一堆树里的最大值或者最小值 Python
 
-Python
 import sys 
 class BinaryHeap: 
-  
+
     def __init__(self, capacity): 
         self.capacity = capacity 
         self.size = 0
@@ -497,14 +495,14 @@ if __name__ == "__main__":
 
 
 
-    图 graph 有点 有边 (vertex, edge)
-    visited=set() 和树的区别 要避免重复节点
+# 图 graph 有点 有边 (vertex, edge)
+# visited=set() 和树的区别 要避免重复节点
 
     BFS Breadth First Traversal (Or Level Order Traversal)
     DFS:
     Inorder Traversal (Left-Root-Right)
     Preorder Traversal (Root-Left-Right)
     Postorder Traversal (Left-Right-Root)
-    高级算法：连通图个数 拓扑排序（Topological Sorting）最短路径（Shortest Path）最小生成树（Minimum Spanning Tree）
+# 高级算法：连通图个数 拓扑排序（Topological Sorting）最短路径（Shortest Path）最小生成树（Minimum Spanning Tree）
 
      
