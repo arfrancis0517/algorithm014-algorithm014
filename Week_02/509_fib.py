@@ -1,10 +1,9 @@
 class Solution:
     def fib(self, N: int) -> int:
 
-        if N == 0:
-            return 0
-        if N == 1:
-            return 1
+        if N <= 1:
+            return N
+            
         f = 0
         fMinusOne = 1
         fMinusTwo = 0
